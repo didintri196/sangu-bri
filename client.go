@@ -15,11 +15,13 @@ import (
 )
 
 type Client struct {
-	BaseUrl      string
-	ClientId     string
-	ClientSecret string
-	LogLevel     int
-	Logger       *log.Logger
+	BaseUrl         string
+	ClientId        string
+	ClientSecret    string
+	InstitutionCode string
+	BrivaNo         string
+	LogLevel        int
+	Logger          *log.Logger
 }
 
 // NewClient : this function will always be called when the library is in use

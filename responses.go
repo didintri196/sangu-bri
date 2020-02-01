@@ -42,3 +42,26 @@ type VaReportData struct {
 	TellerId    string `json:"tellerid"`
 	AccountNo   string `json:"no_rek"`
 }
+
+type VaInformationResponse struct {
+	Status              bool              `json:"status"`
+	ResponseCode        string            `json:"responseCode"`
+	ResponseDescription string            `json:"responseDescription"`
+	Data                VaInformationData `json:"data"`
+}
+
+type VaInformationData struct {
+	Status string `json:"statusBayar"`
+}
+
+type VaDeleteResponse struct {
+	Status              bool         `json:"status"`
+	ResponseCode        string       `json:"responseCode"`
+	ResponseDescription string       `json:"responseDescription"`
+	Data                VaDeleteData `json:"data"`
+}
+type VaDeleteData struct {
+	InstitutionCode string `json:"institutionCode"`
+	BrivaNo         string `json:"brivaNo"`
+	CustCode        string `json:"custCode"`
+}

@@ -16,3 +16,15 @@ type GetReportVaRequest struct {
 	StartDate       string
 	EndDate         string
 }
+
+type GetInformationVaRequest struct {
+	InstitutionCode string
+	BrivaNo         string
+	CustCode        string
+}
+
+type DeleteVaRequest struct {
+	InstitutionCode string `json:"institutionCode"`
+	BrivaNo         string `json:"brivaNo"`
+	CustCode        string `json:"custCode"`
+}
