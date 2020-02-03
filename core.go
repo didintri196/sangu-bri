@@ -143,7 +143,7 @@ func (gateway *CoreGateway) GetInformationVA(token string, req GetInformationVaR
 func (gateway *CoreGateway) DeleteVA(token string, req DeleteVaRequest) (res VaDeleteResponse, err error) {
 	token = "Bearer " + token
 	method := "DELETE"
-	body, err := json.Marshal(req)
+	body := "institutionCode=" + req.InstitutionCode + "&brivaNo=" + req.BrivaNo + "&custCode=" + req.CustCode //json.Marshal(req)
 	timestamp := getTimestamp(BRI_TIME_FORMAT)
 	signature := generateSignature(VA_PATH, method, token, timestamp, string(body), gateway.Client.ClientSecret)
 
@@ -151,7 +151,7 @@ func (gateway *CoreGateway) DeleteVA(token string, req DeleteVaRequest) (res VaD
 		"Authorization": token,
 		"BRI-Timestamp": timestamp,
 		"BRI-Signature": signature,
-		"Content-Type":  "application/json",
+		"Content-Type":  "application/x-www-form-urlencoded",
 	}
 
 	err = gateway.Call(method, VA_PATH, headers, strings.NewReader(string(body)), &res)
